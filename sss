@@ -1,0 +1,100 @@
+@media screen and (max-width:1040px) {
+
+    #outerbox {
+        width: 360px;
+        height: 200px;
+        overflow: hidden;
+        z-index: -100;
+    }
+
+
+    #sliderbox {
+        position: relative;
+        width: 1440px;
+        /*ek image pic ki widht 360 hai ise 4 se guna bcz 4 image ha 360*4 = 1440*/
+        /* animation-name:aman;
+        animation-duration:20s; */
+
+        /*ek pic ko 4  5*4sec   4 se image chalegi 1 sec rukegi*/
+
+        /* animation-iteration-count:infinite;*/
+    }
+
+
+
+
+
+
+    #sliderbox img {
+        width: 360px;
+        float: left;
+    }
+
+    @keyframes aman {
+
+        0% {
+            left: 0px;
+
+        }
+
+
+        20% {
+            left: 0px;
+
+        }
+
+        25% {
+
+            left: -360px;
+        }
+
+        45% {
+            left: -360px;
+
+        }
+
+        50% {
+            left: -720px;
+
+        }
+
+        70% {
+            left: -720px;
+
+        }
+
+        75% {
+            left: -1080px;
+        }
+
+        95% {
+            left: -1080px;
+
+        }
+
+        100% {
+            left: -1440px;
+        }
+    }
+
+    .topcategori {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .footer {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .topcategoripro {
+        width: 370px;
+    }
+
+    .footer {
+        height: unset;
+    }
+
+}

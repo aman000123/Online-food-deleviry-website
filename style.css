@@ -1,0 +1,805 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.menuheader {
+    display: none;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    background-color: black;
+    color: white;
+
+}
+
+ul li {
+    width: 100%;
+    border: 2px solid white;
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+}
+
+/* dropdown ka parent hai isliye position relative*/
+
+ul li a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    display: block;
+    padding: 6px;
+}
+
+/* dropdown bydefault nhi dikheg hover karne par hi dikhe*/
+
+.dropdown {
+    position: absolute;
+    width: 100%;
+    flex-wrap: wrap;
+    visibility: hidden;
+    transition: 0.6;
+    left: 0;
+    top: -600%;
+    z-index: -1;
+
+    /*animation upr se niche dikhana hai isliyeise by drfault csreen se bahut upar bhej do*/
+
+}
+
+/* ab dikhega*/
+ul li:hover .dropdown {
+
+    visibility: visible;
+    top: 100%;
+}
+
+
+
+.subdropdown {
+
+    position: absolute;
+    flex-wrap: wrap;
+    left: 150%;
+    width: 100%;
+    top: -650%;
+    visibility: hidden;
+    top: 0;
+
+    /*animation upr se niche dikhana hai isliyeise by drfault csreen se bahut upar bhej do*/
+    /* width 100% dene pr pure width le lega content ke hisab se*/
+}
+
+
+/* dropdown ke li pr hover ho to sub dropdown open ho*/
+
+.dropdown li:hover .subdropdown {
+
+    left: 100%;
+    visibility: visible;
+
+
+
+}
+
+
+.menucontent {
+    position: fixed;
+    top: 0px;
+    z-index: 29299229 !important;
+}
+
+
+
+
+#menu ul {
+    list-style: none;
+    z-index: 100;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: serif;
+    /*slider bnne se drop down piche chla gaya tha*/
+
+
+}
+
+#menu ul li {
+    background-color: black;
+    border: 1px solid white;
+    width: 294px;
+
+    text-align: center;
+
+
+    /*height aur line heightki value same hoi chahiye
+        line heigh se jo home menu center me ns hokar upar chipka hai bich me aajayega*/
+    line-height: 40px;
+    /*menus erticaly hai hme horisontal chahiye*/
+
+    float: left;
+    position: relative;
+    /*dropdown dikhane ke liye*/
+
+
+}
+
+#menu ul li a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 0px !important;
+    /*isse pure jitne box me home hai utne pr curser hoga*/
+
+
+}
+
+#menu ul li a:hover {
+    background-color: green;
+    color: white;
+
+
+}
+
+#menu ul ul {
+    position: absolute;
+    display: none;
+}
+
+/*dropdown open krne ke liye*/
+#menu ul li:hover>ul {
+    display: block;
+
+
+}
+
+
+/*  footer ke liye*/
+
+
+.footer {
+    height: 270px;
+    width: 100%;
+    background-color: black;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+
+}
+
+
+.footb {
+    height: 180px;
+    width: 200px;
+
+    float: left;
+    color: white;
+
+    text-align: center;
+
+
+}
+
+
+table {
+    height: 425px;
+
+
+}
+
+table input {
+    width: 100%;
+    padding: 6px 6px 6px 25px;
+    border: 2px solid green;
+    font-size: 20px;
+
+}
+
+table textarea {
+    width: 100%;
+    height: 88px;
+    border: 2px solid green;
+    font-size: 20px;
+
+}
+
+table select {
+    width: 100%;
+    padding: 6px 6px 6px 25px;
+    border: 2px solid green;
+    font-size: 20px;
+
+
+}
+
+table input[type="button"]:hover {
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+
+
+}
+
+
+/* for sliders */
+
+
+
+
+#outerbox {
+    width: 1462px;
+    height: 700px;
+    overflow: hidden;
+    z-index: -100;
+}
+
+
+#sliderbox {
+    position: relative;
+    width: 6088px;
+    /*ek image pic ki widht 1280 hai ise 4 se guna bcz 4 image ha*/
+    animation-name: aman;
+    animation-duration: 20s;
+
+    /*ek pic ko 4  5*4sec   4 se image chalegi 1 sec rukegi*/
+
+    animation-iteration-count: infinite;
+}
+
+.pp {
+    height: 280px !important;
+}
+
+
+
+
+#sliderbox img {
+    width: 1520px;
+    float: left;
+}
+
+@keyframes aman {
+
+
+
+    /*fresh karne pr 1 image turant slide ho rahi hm chahte hai ki thodi dr 4sec hold rahe ruke
+
+sliding 20 sec hai  4 sec holdinhg  (4*100/20) ==20 aayega  20s animation-duration
+
+agar hme apmi phli img ko hold karke rkhna hai 4 sec ke liye to
+
+hme 0% se 20% setting use
+so 100%ki need nhi hai*/
+
+
+    /*
+
+ab hme 5wen sec ki set krna hai 4 sec hold ke bad 5wen second pr image slide ho jaye
+
+
+5*100/20 == 25
+
+
+*/
+    /*ab tak hmne 1 2 3 4 5sec ki settin kar li ab next 4 sec ki setting
+
+ 6 7 8 9
+ 
+ 9 sec tak percentege kitna 
+
+
+9*100/20==45sec*/
+
+
+    /* ab img 9 sec tk moove nhi karegi 10 sec ka krna ha 10*100/20==  50%
+
+1img ki width 1280  2nd ki 1280*2 hogi=2560*/
+
+    /* ab hme 11 12 13 14 sec ki calculate karni hogi jispa duration pr img ko hold krna hai
+
+14 sec ka peccentage
+
+14*100/20==70**/
+
+    /* ab hme 15we sec ki calculation 15*100/20==75 
+
+15 swec me moove hona
+  
+1280*3==3840*/
+
+    /* ab hme 16 17 18 19 sec ki setting krni hai 19sec tk img ko hold krna hai 19*100/20==95*/
+
+
+    0% {
+        left: 0px;
+
+    }
+
+
+    20% {
+        left: 0px;
+
+    }
+
+    25% {
+
+        left: -1520px;
+    }
+
+    45% {
+        left: -1520px;
+
+    }
+
+    50% {
+        left: -3040px;
+
+    }
+
+    70% {
+        left: -3040px;
+
+    }
+
+    75% {
+        left: -4560px;
+    }
+
+    95% {
+        left: -4560px;
+
+    }
+
+    100% {
+        left: -6080px;
+    }
+}
+
+/* 
+top categories */
+
+
+
+.topcategori {
+
+
+    display: flex;
+    justify-content: space-around;
+    /*x-axis pr center hota hai*/
+    align-items: center;
+    /*y-axis se center*/
+
+
+}
+
+.topcategoripro {
+
+    width: 370px;
+    height: 268px;
+    float: left;
+    /* bina flex ke bhi kam chal jayeya*/
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 5px 5px 7px 4px #f1f1f1;
+
+    /* 3sra arg blur ke liye  pahla dusra xy axis   4rt spred ke liye*/
+
+
+
+    /*box-shadow:0 4px 8px 0 rgba(0,0,0,0.4),0,6px,20px,0px rgba(0,0,0,0.35);*/
+}
+
+
+/* zoom effect img pr*/
+.topcategoripro {
+    transition: transform 1s;
+}
+
+.topcategoripro:hover {
+    transform: scale(1.05);
+
+    /* hover karne pr structure kitna change hoga*/
+
+    /* 1 means 100%;2=200%*/
+}
+
+
+
+.topcategoripro img {
+    width: 100%;
+
+}
+
+.checked {
+    color: orange;
+}
+
+.startr {
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    text-align: center;
+
+}
+
+.hom p {
+    text-align: justify;
+
+}
+
+.hom {
+    padding: 0px 50px;
+}
+
+
+
+
+
+
+.topcategori {
+
+
+    display: flex;
+    justify-content: space-around;
+    /*x-axis pr center hota hai*/
+    align-items: center;
+    /*y-axis se center*/
+
+
+}
+
+
+
+.topcategoripro {
+
+    width: 370px !important;
+    height: 330px;
+    float: left;
+    /* bina flex ke bhi kam chal jayeya*/
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 5px 5px 7px 4px #f1f1f1;
+
+    /* 3sra arg blur ke liye  pahla dusra xy axis   4rt spred ke liye*/
+
+
+
+    /*box-shadow:0 4px 8px 0 rgba(0,0,0,0.4),0,6px,20px,0px rgba(0,0,0,0.35);*/
+}
+
+
+/* zoom effect img pr*/
+.topcategoripro {
+    transition: transform 1s;
+}
+
+.topcategoripro:hover {
+    transform: scale(1.05);
+
+    /* hover karne pr structure kitna change hoga*/
+
+    /* 1 means 100%;2=200%*/
+}
+
+
+
+.topcategoripro img {
+    width: 100%;
+
+}
+
+.checked {
+    color: orange;
+}
+
+.startr {
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    text-align: center;
+
+}
+
+.btn {
+
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn input {
+
+    height: 40px;
+    width: 130px;
+    border-radius: 7px;
+    border: 0px;
+    background-color: orange;
+    font-size: 23px;
+    box-shadow: 5px 5px 7px 4px #f1f1f1;
+
+}
+
+.btn input:hover {
+    background-color: green;
+    color: white;
+}
+
+
+
+.title b {
+    color: green;
+    font-size: 20px;
+}
+
+
+#media {
+    display: none;
+}
+
+
+
+
+
+
+/* @media and screen(max-width:767px)  ye bhi sahi hai*/
+@media(max-width:767px) {
+
+
+    ul {
+        /*display:table;  ye bhi sahi hai bina flex ke hojayega*/
+        width: 768px;
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+
+    ul li {
+        text-align: left;
+    }
+
+
+
+    .dropdown,
+    .subdropdown {
+
+        position: relative;
+        left: 0;
+        top: 40px !important;
+        transition: none;
+        visibility: visible;
+        display: none;
+        z-index: 1;
+
+    }
+
+    .display {
+        display: block;
+    }
+
+
+    ul li:hover .dropdown {
+
+        visibility: visible;
+        top: 0;
+    }
+
+
+    .dropdown li:hover .subdropdown {
+
+        left: 0;
+    }
+
+
+    /* by default nav na dikhe icon pr click karne pr hi dikhe*/
+    .menucontent {
+        display: none;
+    }
+
+
+
+    .menuheader {
+        background-color: #272727;
+        padding: 10px 10px;
+        text-align: right;
+        display: block;
+        width: 100%;
+    }
+
+    .fa-bars {
+        color: white;
+        border: 1px solid white;
+        padding: 5px 10px;
+        border-radius: 5px;
+
+    }
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width:426px) {
+
+    #outerbox {
+        width: 426px;
+        height: 200px;
+        overflow: hidden;
+        z-index: -100;
+    }
+
+    #menu ul li {
+        width: 425px;
+    }
+
+
+    .menuheader {
+        background-color: #272727;
+        padding: 10px 10px;
+        text-align: right;
+        display: block;
+        width: 426px;
+    }
+
+    #sliderbox {
+        position: relative;
+        width: 1704px;
+        /*ek image pic ki widht 360 hai ise 4 se guna bcz 4 image ha 360*4 = 1440*/
+        /* animation-name:aman;
+        animation-duration:20s; */
+
+        /*ek pic ko 4  5*4sec   4 se image chalegi 1 sec rukegi*/
+
+        /* animation-iteration-count:infinite;*/
+    }
+
+
+
+
+
+
+    #sliderbox img {
+        width: 426px;
+        float: left;
+    }
+
+    @keyframes aman {
+
+        0% {
+            left: 0px;
+
+        }
+
+
+        20% {
+            left: 0px;
+
+        }
+
+        25% {
+
+            left: -426px;
+        }
+
+        45% {
+            left: -426px;
+
+        }
+
+        50% {
+            left: -852px;
+
+        }
+
+        70% {
+            left: -852px;
+
+        }
+
+        75% {
+            left: -1278px;
+        }
+
+        95% {
+            left: -1278px;
+
+        }
+
+        100% {
+            left: -1704px;
+        }
+    }
+
+    .topcategori {
+        display: flex;
+        width: 426px !important;
+        flex-wrap: wrap;
+    }
+
+    .footer {
+        display: flex;
+        flex-wrap: wrap;
+        width: 426px !important;
+    }
+
+    .topcategoripro {
+        width: 426px !important;
+        height: 354px !important;
+    }
+
+    .footer {
+        height: unset;
+        padding: 10px;
+    }
+
+    h1 {
+        width: 426px;
+    }
+
+    .hom {
+        width: 425px;
+        margin: auto;
+    }
+
+    .pro {
+        height: 320px !important;
+    }
+
+}
+
+
+.pro {
+    height: 268px;
+}
+
+/* 
+@media screen and (min-width:766px) and(max-width:769px) {
+
+
+    .menucontent {
+        width: 1461px;
+    }
+
+    h1 {
+        width: 1462px;
+    }
+
+    .footer {
+        height: unset;
+        padding: 10px;
+        width: 1461px;
+    }
+
+    .topcategori {
+        width: 1461px;
+    }
+} */
